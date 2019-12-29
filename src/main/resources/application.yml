@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: monitoring-playground
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      show-details: ALWAYS

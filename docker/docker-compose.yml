@@ -1,0 +1,26 @@
+version: "3.1"
+
+services:
+  grafana:
+    depends_on:
+      - graphite
+    container_name: grafana
+    image:  grafana/grafana
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=secret
+    networks:
+      - monitoring
+
+  graphite:
+    container_name: graphite
+    image: graphiteapp/graphite-statsd
+    ports:
+      - 2004:2004
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
