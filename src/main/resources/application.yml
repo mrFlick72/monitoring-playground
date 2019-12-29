@@ -2,7 +2,12 @@ spring:
   application:
     name: monitoring-playground
 
+
 management:
+  metrics:
+    export:
+      graphite:
+        step: 1s
   endpoints:
     web:
       exposure:
